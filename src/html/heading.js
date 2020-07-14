@@ -19,9 +19,14 @@ function heading (chunks) {
   function swap () {
     var level = parseInt(lead[1], 10);
     // checks for the next heading size. Calls remove() if <h4> is reached.
-    var next = level > 3 ? remove() : level + 1;
-    chunks.before = chunks.before.replace(rleading, '<h' + next + '>');
-    chunks.after = chunks.after.replace(rtrailing, '</h' + next + '>');
+    var next = level > 3 ? 0 : level + 1;
+    if(next === 0) {
+      remove();
+    }
+    else {
+      chunks.before = chunks.before.replace(rleading, '<h' + next + '>');
+      chunks.after = chunks.after.replace(rtrailing, '</h' + next + '>');
+    }
   }
 
   function remove () {
