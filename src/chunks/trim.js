@@ -4,7 +4,8 @@ function trim (remove) {
   var self = this;
 
   if (remove) {
-    beforeReplacer = afterReplacer = '';
+    beforeReplacer('');
+    afterReplacer('');
   }
   self.selection = self.selection.replace(/^(\s*)/, beforeReplacer).replace(/(\s*)$/, afterReplacer);
 
